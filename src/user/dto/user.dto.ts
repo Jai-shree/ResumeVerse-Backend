@@ -1,9 +1,23 @@
 import { Type } from "class-transformer";
 import { IsArray, IsEmail, IsNotEmpty, IsString, ValidateNested } from "class-validator";
 
+export class WorkExperienceDto {
+    @IsString()
+    projectName: string;
+  
+    @IsString()
+    duration: string;
+  
+    @IsString()
+    role: string;
+  
+    @IsString()
+    desc: string;
+}
+
 export class EducationDto{
     @IsString()
-    institute:String;
+    instituteName:String;
     
     @IsString()
     duration:String;
@@ -13,23 +27,6 @@ export class EducationDto{
     
     @IsString()
     degree:String;
-}
-
-export class WorkExperienceDto {
-    @IsString()
-    projectName: string;
-  
-    @IsString()
-    startDate: string;
-  
-    @IsString()
-    endDate: string;
-  
-    @IsString()
-    role: string;
-  
-    @IsString()
-    desc: string;
 }
 
 export class ProjectDto {

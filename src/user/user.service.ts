@@ -9,8 +9,9 @@ export class UserService {
   constructor(@InjectModel(User.name) private userModel: Model<User>) { }
   
   async create(userDto: UserDto) {
+    console.log(userDto);
     const id=await this.userModel.find({userId:userDto.userId,resumeId:userDto.resumeId},"_id");
-    console.log("id:",id);
+    //console.log("id:",id);
     const existingUser = await this.userModel.findByIdAndUpdate(id, userDto, { new: true,upsert: true  });
     console.log(existingUser);
     return existingUser;

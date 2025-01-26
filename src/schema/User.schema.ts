@@ -3,9 +3,9 @@ import { Type } from "class-transformer";
 
 
 @Schema()
-export class Education {
+export class Education{
     @Prop()
-    institute:String;
+    instituteName:String;
 
     @Prop()
     duration:String;
@@ -80,9 +80,9 @@ export class User{
     @Prop()
     github:String;
 
-    @Prop({ type: EducationSchema })
+    @Prop({ type: [EducationSchema] })
     @Type(() => Education)
-    profile: Education[]; 
+    education: Education[]; 
 
     @Prop({ type: [String] })
     skills: string[];
